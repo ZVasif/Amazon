@@ -11,9 +11,14 @@ public class DialogContent extends Parent {
     }
 
     //************************** _01_ UniBank **************************//
-    @FindBy(css = "[style ='line-height: 15px']")
-    private WebElement tele;
-
+    @FindBy(id = "glow-ingress-line2")
+    private WebElement confirm;
+    @FindBy (xpath = "//*[contains(@class,'nav-sprite')]/select")
+            private WebElement all;
+    @FindBy(xpath = "//*[contains(@class,'nav-search-field ')]/input")
+            private WebElement searchBox;
+    @FindBy(xpath = "//*[contains(@class,'nav-search-submit-text')]/input")
+            private WebElement searchButton;
 
 
 
@@ -22,7 +27,7 @@ public class DialogContent extends Parent {
     WebElement myElement;
     public void findAndSend (String strElement,String value){
        switch (strElement){
-           //case "email":myElement=email;break;
+           case "searchBox":myElement=searchBox;break;
 
        }
 
@@ -34,7 +39,7 @@ public class DialogContent extends Parent {
 
     public void findAndClick (String strElement){
         switch (strElement){
-           // case "cards":myElement=cards;break;
+            case "searchButton":myElement=searchButton;break;
 
 
         }
@@ -43,7 +48,7 @@ public class DialogContent extends Parent {
 
     public void findAndContainsText (String strElement,String text){
         switch (strElement){
-            //case "tele":myElement=tele;break;
+            case "confirm":myElement=confirm;break;
 
 
 
@@ -51,17 +56,11 @@ public class DialogContent extends Parent {
         verifyContainsText(myElement,text);
     }
 
-    public void SearchAndDelete(String searchText){
-        findAndSend("searchBox",searchText);
-        findAndClick("searchBTN");
-
-       // WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.stalenessOf(deleteBTN));
-
-        waitUntilLoading();
-        findAndClick("deletebutton");
-        findAndClick("deleteDialogbutton");
-
+    public void selectElement(String strElement,String text){
+        switch (strElement){
+            case "all":myElement=all;break;
+        }
+        selectElement(myElement,text);
     }
 
 }
