@@ -29,7 +29,9 @@ public class DialogContent extends Parent {
             private WebElement password;
     @FindBy(id = "signInSubmit")
             private WebElement singButton;
-    @FindBy(xpath = "//*[@data-index=\"2\" and @data-asin=\"B09N3YBXCN\"]")
+    @FindBy(name = "rememberMe")
+    private WebElement remember;
+    @FindBy(xpath = "//*[@data-cel-widget=\"search_result_2\" and contains(@data-asin,\"B09N3Y\")]")
     private WebElement tablet;
     @FindBy(xpath = "//*[text()='-22%']")
             private WebElement discount;
@@ -58,6 +60,7 @@ public class DialogContent extends Parent {
             case "signIn":myElement=signIn;break;
             case "continueButton":myElement=continueButton;break;
             case "singButton":myElement=singButton;break;
+            case "remember":myElement=remember;break;
             case "tablet":myElement=tablet;break;
 
 
