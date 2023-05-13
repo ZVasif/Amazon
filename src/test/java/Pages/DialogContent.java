@@ -13,27 +13,30 @@ public class DialogContent extends Parent {
     //************************** _01_  **************************//
     @FindBy(id = "glow-ingress-line2")
     private WebElement confirm;
+    @FindBy(xpath = "//*[text()='Hello, sign in']")
+    private WebElement signIn;
+    @FindBy(id="ap_email")
+    private WebElement email;
+    @FindBy(xpath = "//*[@class='a-button-inner']/input")
+    private WebElement continueButton;
+    @FindBy(name = "password")
+    private WebElement password;
+    @FindBy(id = "signInSubmit")
+    private WebElement singButton;
+    @FindBy(name = "rememberMe")
+    private WebElement remember;
+
+    //************************** _02_  **************************//
+
     @FindBy (xpath = "//*[contains(@class,'nav-sprite')]/select")
             private WebElement all;
     @FindBy(xpath = "//*[contains(@class,'nav-search-field ')]/input")
             private WebElement searchBox;
     @FindBy(xpath = "//*[contains(@class,'nav-search-submit-text')]/input")
             private WebElement searchButton;
-    @FindBy(xpath = "//*[text()='Hello, sign in']")
-            private WebElement signIn;
-    @FindBy(id="ap_email")
-            private WebElement email;
-    @FindBy(xpath = "//*[@class='a-button-inner']/input")
-            private WebElement continueButton;
-    @FindBy(name = "password")
-            private WebElement password;
-    @FindBy(id = "signInSubmit")
-            private WebElement singButton;
-    @FindBy(name = "rememberMe")
-    private WebElement remember;
-    @FindBy(xpath = "//*[@data-cel-widget=\"search_result_2\" and contains(@data-asin,\"B09N3Y\")]")
+    @FindBy(xpath = "//*[contains(text(),'US VersonGray')]")
     private WebElement tablet;
-    @FindBy(xpath = "//*[text()='-22%']")
+    @FindBy(xpath = "//*[contains(@class,'savingsPercentage')]")
             private WebElement discount;
 
 
