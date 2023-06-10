@@ -9,9 +9,13 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 
 public class _02_Product {
@@ -28,7 +32,7 @@ public class _02_Product {
 
         dc.findAndClick("tablet");
         WebElement discount= GWD.getDriver().findElement(By.xpath("//*[contains(@class,'savingsPercentage')]"));
-        System.out.println("discount = " + discount.getText());
+        //System.out.println("discount = " + discount.getText());
 
         XSSFWorkbook wb=new XSSFWorkbook();
         XSSFSheet sh=wb.createSheet("Sheet");
@@ -48,23 +52,40 @@ public class _02_Product {
 
 
         WebElement listPrice=GWD.getDriver().findElement(By.xpath("//*[contains(@class,'basisPrice')]"));
-        System.out.println("listPrice="+listPrice.getText());
+        //System.out.println("listPrice="+listPrice.getText());
         double reg1=Double.parseDouble(listPrice.getText().replaceAll("[A-Za-z,:$]",""));
 
-        System.out.println("reg1 = " + reg1);
+        //System.out.println("reg1 = " + reg1);
 
-        WebElement currentPrice=GWD.getDriver().findElement(By.xpath("(//*[@data-a-size=\"xl\"]/span)[3]"));
-        System.out.println("currentPrice = " + currentPrice.getText());
-//        double reg2=Double.parseDouble(currentPrice.getText().replaceAll("[$]",""));
-//        System.out.println("reg2 = " + reg2);
+        WebElement mainPrice=GWD.getDriver().findElement(By.className("a-price-whole"));
+        //System.out.println("currentPrice = " + currentPrice.getText());
+        WebElement priceEnd=GWD.getDriver().findElement(By.className("a-price-fraction"));
+        //System.out.println("sonReqem = " + sonReqem.getText());
 
-//        double rebate=reg1-reg2;
-//
-//        System.out.println("There was a "+discount.getText()+"discount on the product."+rebate+" $ has been rebate");
+        double currentPrice=Double.parseDouble(mainPrice.getText().concat(".").concat(priceEnd.getText()));
+        //System.out.println("currentPrice = " + currentPrice);
+//      double reg2=Double.parseDouble(currentPrice.getText().replaceAll("[$]",""));
+
+        double rebate=(double)(Math.ceil(reg1-currentPrice));
 
 
+        System.out.println("There was a "+discount.getText()+" discount on the product."+" You can save "+rebate+" $.");
+
+
+        dc.findAndClick("addTocard");
+
+        //GWD.Bekle(10);
+        WebElement element=GWD.getDriver().findElement(By.id("a-page"));
+        WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
+        wait.until(ExpectedConditions.attributeContains(element,"aria-hidden","true"));
+
+        dc.findAndClick("cart");
+        dc.findAndClick("delete");
+        dc.findAndContainsText("emptyMessage","empty");
 
 
     }
 }
+
+
 
