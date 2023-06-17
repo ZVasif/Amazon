@@ -21,15 +21,26 @@ public class _03_Select_TV {
 
         for (int i = 0; i < listElement.size(); i++) {
             dc.findAndClick(listElement.get(i));
-            dc.selectAction(listElement.get(i));
 
         }
 
+        dc.selectAction("electronins");
+        dc.selectAction("videoTV");
 
-//        WebElement element=GWD.getDriver().findElement(By.xpath("//*[@data-menu-id=\"5\"]"));
-//        Actions actions=new Actions(GWD.getDriver());
-//        Action action=actions.moveToElement(element).click().build();
-//        action.perform();
+
+        GWD.Bekle(5);
+
 
     }
+
+//    @And("Select TV from the department section,select LED & LCD TV and select SAMSUNG from the Featured Brands section")
+//    public void selectTVFromTheDepartmentSectionSelectLEDLCDTVAndSelectSAMSUNGFromTheFeaturedBrandsSection(DataTable elements) {
+//        List<String>listElement=elements.asList(String.class);
+////        for (int i = 0; i < listElement.size() ; i++) {
+////            dc.findAndClick(listElement.get(i));
+////        }
+//        dc.findAndClick("TV");
+//    }
+
+
 }

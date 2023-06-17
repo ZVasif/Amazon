@@ -56,6 +56,8 @@ public class DialogContent extends Parent {
             private WebElement electronins;
     @FindBy(xpath = "//*[text()='Television & Video']")
             private WebElement videoTV;
+    @FindBy(xpath="//*[text()='Televisions']")
+            private WebElement TV;
 
 
 
@@ -86,8 +88,7 @@ public class DialogContent extends Parent {
             case "cart":myElement=cart;break;
             case "delete":myElement=delete;break;
             case "mainAll":myElement=mainAll;break;
-            //case "electronins":myElement=electronins;break;
-            //case "videoTV":myElement=videoTV;break;
+            case "TV":myElement=TV;break;
 
 
         }
@@ -116,6 +117,7 @@ public class DialogContent extends Parent {
     public void selectAction(String strElement){
         switch (strElement){
             case "electronins":myElement=electronins;break;
+            case "videoTV":myElement=videoTV;break;
         }
         actionFunction(myElement);
     }
