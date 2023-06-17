@@ -36,6 +36,7 @@ public class _03_Select_TV {
         dc.findAndSend("maxPrice","900");
         dc.findAndSend("minPrice","500");
         dc.findAndClick("go");
+        //dc.f
 
 
     }
