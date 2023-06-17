@@ -1,6 +1,7 @@
 package Pages;
 
 import Utilites.GWD;
+import org.bouncycastle.asn1.x9.X9ECParameters;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -52,12 +53,22 @@ public class DialogContent extends Parent {
             private WebElement mainAll;
     @FindBy(xpath = "//*[@data-menu-id=\"1\"]/li")
             private WebElement allMenu2;
-    @FindBy(xpath = "//*[@data-menu-id=\"5\"]")
+    @FindBy(xpath = "//*[@data-menu-id=\"5\"]//div")
             private WebElement electronins;
     @FindBy(xpath = "//*[text()='Television & Video']")
             private WebElement videoTV;
     @FindBy(xpath="//*[text()='Televisions']")
             private WebElement TV;
+    @FindBy(xpath ="//*[text()='LED & LCD TVs']" )
+            private WebElement LED;
+    @FindBy(xpath = "//*[@data-csa-c-content-id=\"p_89/SAMSUNG\"]//i")
+            private WebElement samsung;
+    @FindBy(id = "high-price")
+            private  WebElement maxPrice;
+    @FindBy(id="low-price")
+            private WebElement minPrice;
+    @FindBy(xpath = "//*[@class='a-button-inner']/input")
+            private WebElement go;
 
 
 
@@ -67,6 +78,8 @@ public class DialogContent extends Parent {
            case "email":myElement=email;break;
            case "password":myElement=password;break;
            case "searchBox":myElement=searchBox;break;
+           case "maxPrice":myElement=maxPrice;break;
+           case "minPrice":myElement=minPrice;break;
 
        }
 
@@ -89,6 +102,9 @@ public class DialogContent extends Parent {
             case "delete":myElement=delete;break;
             case "mainAll":myElement=mainAll;break;
             case "TV":myElement=TV;break;
+            case "LED":myElement=LED;break;
+            case "go":myElement=go;break;
+
 
 
         }
@@ -118,6 +134,7 @@ public class DialogContent extends Parent {
         switch (strElement){
             case "electronins":myElement=electronins;break;
             case "videoTV":myElement=videoTV;break;
+            case "samsung":myElement=samsung;break;
         }
         actionFunction(myElement);
     }

@@ -23,24 +23,22 @@ public class _03_Select_TV {
             dc.findAndClick(listElement.get(i));
 
         }
-
         dc.selectAction("electronins");
         dc.selectAction("videoTV");
 
+    }
 
-        GWD.Bekle(5);
+    @And("Select TV from the department section,select LED & LCD TV and select SAMSUNG from the Featured Brands section")
+    public void selectTVFromTheDepartmentSectionSelectLEDLCDTVAndSelectSAMSUNGFromTheFeaturedBrandsSection() {
+        dc.findAndClick("TV");
+        dc.findAndClick("LED");
+        dc.selectAction("samsung");
+        dc.findAndSend("maxPrice","900");
+        dc.findAndSend("minPrice","500");
+        dc.findAndClick("go");
 
 
     }
-
-//    @And("Select TV from the department section,select LED & LCD TV and select SAMSUNG from the Featured Brands section")
-//    public void selectTVFromTheDepartmentSectionSelectLEDLCDTVAndSelectSAMSUNGFromTheFeaturedBrandsSection(DataTable elements) {
-//        List<String>listElement=elements.asList(String.class);
-////        for (int i = 0; i < listElement.size() ; i++) {
-////            dc.findAndClick(listElement.get(i));
-////        }
-//        dc.findAndClick("TV");
-//    }
 
 
 }

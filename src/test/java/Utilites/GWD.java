@@ -22,8 +22,6 @@ public class GWD {
 
 
 
-
-
     public static WebDriver getDriver()
     {
 

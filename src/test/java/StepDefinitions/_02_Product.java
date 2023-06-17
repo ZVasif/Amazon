@@ -68,8 +68,7 @@ public class _02_Product {
 
         double rebate=(double)(Math.ceil(reg1-currentPrice));
 
-
-        System.out.println("There was a "+discount.getText()+" discount on the product."+" You can save "+rebate+" $.");
+         System.out.println("There was a "+discount.getText()+" discount on the product."+" You can save "+rebate+" $.");
 
 
         dc.findAndClick("addTocard");
@@ -86,6 +85,8 @@ public class _02_Product {
 
     }
 }
+
+
 
 
 
