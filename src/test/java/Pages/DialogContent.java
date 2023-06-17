@@ -135,6 +135,7 @@ public class DialogContent extends Parent {
             case "electronins":myElement=electronins;break;
             case "videoTV":myElement=videoTV;break;
             case "samsung":myElement=samsung;break;
+            //123
         }
         actionFunction(myElement);
     }
