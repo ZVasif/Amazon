@@ -70,6 +70,14 @@ public class DialogContent extends Parent {
     @FindBy(xpath = "//*[@class='a-button-inner']/input")
             private WebElement go;
 
+    @FindBy(xpath = "//*[@aria-label=\"4K\"]/span")
+    private WebElement fourK;
+
+    @FindBy(xpath = "//*[@aria-label=\"2022\"]/span")
+    private WebElement year2022;
+    @FindBy(xpath = "//*[contains(text(),'SAMSUNG M8')]")
+            private WebElement TVM8;
+
 
 
     WebElement myElement;
@@ -104,6 +112,10 @@ public class DialogContent extends Parent {
             case "TV":myElement=TV;break;
             case "LED":myElement=LED;break;
             case "go":myElement=go;break;
+            case "fourK":myElement=fourK;break;
+            case "year2022":myElement=year2022;break;
+            case "TVM8":myElement=TVM8;break;
+
 
 
 
