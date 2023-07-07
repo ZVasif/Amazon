@@ -22,7 +22,7 @@ public class _02_Product {
     DialogContent dc=new DialogContent();
     @And("Click to the All and select computer, then search samsung")
     public void clickToTheAllAndSelectComputerThenSearchSamsung() {
-        dc.selectElement("all","Computers");
+        dc.selectElement("allMenu1","Computers");
         dc.findAndSend("searchBox","samsung");
         dc.findAndClick("searchButton");
     }
@@ -73,7 +73,7 @@ public class _02_Product {
 
         dc.findAndClick("addTocard");
 
-        //GWD.Bekle(10);
+
         WebElement element=GWD.getDriver().findElement(By.id("a-page"));
         WebDriverWait wait=new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(30));
         wait.until(ExpectedConditions.attributeContains(element,"aria-hidden","true"));

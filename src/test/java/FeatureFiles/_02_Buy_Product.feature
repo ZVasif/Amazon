@@ -1,6 +1,6 @@
 Feature: Buy product
 
-  Scenario: dkfbvsdvbk
+  Scenario: Buy product with search
     Given Open website Amazon
     When Confirm website Amazon
     And Click to the All and select computer, then search samsung
